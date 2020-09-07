@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="media/favicon.png" type="image/x-icon" />
+    <link rel="icon" href="media/favicon.png" />
+    <link rel="stylesheet" href="index.css" />
+    <script defer src="index.js"></script>
+    <title>Bookmarker App</title>
+  </head>
+  <body>
+    <h3>Save Your Favorite Websites</h3>
+    <form id="my-form">
+      <div>
+        <label>Site Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="site-name"
+          placeholder="Website name"
+          size="50"
+        />
+        <label>Site URL</label>
+        <input
+          type="text"
+          class="form-control"
+          id="site-url"
+          placeholder="Website URL"
+          size="50"
+        />
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+    <ul>
+      <li id="bookmarks-name"></li>
+      <li id="bookmarks-url"></li>
+    </ul>
+  </body>
+</html>
