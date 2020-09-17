@@ -2,6 +2,8 @@
   getBookmarks();
 })();
 
+const MYFORM = document.getElementById("my-form");
+
 // listen for form submit
 document.getElementById("my-form").addEventListener("submit", saveBookmark);
 
@@ -26,22 +28,30 @@ function saveBookmark(e) {
     localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
   }
 
+  getBookmarks();
+
+  MYFORM.reset();
+
   e.preventDefault();
 }
 
 function getBookmarks() {
   let bookmarks = JSON.parse(localStorage.getItem("bookmarks"));
-  let bookmarksName = document.getElementById("bookmarks-name");
-  let bookmarksURL = document.getElementById("bookmarks-url");
+  let bookmarksResults = document.getElementById("bookmarks-results");
 
-  bookmarksName.innerHTML = "";
-  bookmarksURL.innerHTML = "";
+  bookmarksResults.innerHTML = "";
 
   for (let i = 0; i < bookmarks.length; i++) {
     let name = bookmarks[i].name;
     let url = bookmarks[i].url;
 
-    bookmarksName.innerHTML += "<div>" + name + "</div>";
-    bookmarksURL.innerHTML += url;
+    bookmarksResults.innerHTML +=
+      "<div>" +
+      "<h3>" +
+      name +
+      "<button>View</button>" +
+      "<button>Delete</button>" +
+      "</h3>" +
+      "</div>";
   }
 }
